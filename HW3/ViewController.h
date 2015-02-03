@@ -8,8 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController <NSTextFieldDelegate>
 
+
+@property (weak) IBOutlet NSTextField *textFieldEntry;
+@property (weak) IBOutlet NSButton *buttonAdd;
+@property (weak) IBOutlet NSButton *buttonRemove;
+@property (weak) IBOutlet NSButton *checkDuplication;
+@property (weak) IBOutlet NSTableView *tableTodoList;
 
 @end
 

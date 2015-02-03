@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E12D9C4D1A80B18200312010 /* TodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E12D9C4C1A80B18200312010 /* TodoItem.m */; };
+		E12D9C501A80B5B300312010 /* TodoList.m in Sources */ = {isa = PBXBuildFile; fileRef = E12D9C4F1A80B5B300312010 /* TodoList.m */; };
 		E1F069C11A7F49F30003308B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F069C01A7F49F30003308B /* AppDelegate.m */; };
 		E1F069C31A7F49F30003308B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F069C21A7F49F30003308B /* main.m */; };
 		E1F069C61A7F49F30003308B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F069C51A7F49F30003308B /* ViewController.m */; };
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E12D9C4B1A80B15000312010 /* TodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoItem.h; sourceTree = "<group>"; };
+		E12D9C4C1A80B18200312010 /* TodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoItem.m; sourceTree = "<group>"; };
+		E12D9C4E1A80B54700312010 /* TodoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoList.h; sourceTree = "<group>"; };
+		E12D9C4F1A80B5B300312010 /* TodoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoList.m; sourceTree = "<group>"; };
 		E1F069BA1A7F49F30003308B /* HW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F069BE1A7F49F30003308B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1F069BF1A7F49F30003308B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +92,10 @@
 				E1F069C71A7F49F30003308B /* Images.xcassets */,
 				E1F069C91A7F49F30003308B /* Main.storyboard */,
 				E1F069BD1A7F49F30003308B /* Supporting Files */,
+				E12D9C4B1A80B15000312010 /* TodoItem.h */,
+				E12D9C4C1A80B18200312010 /* TodoItem.m */,
+				E12D9C4E1A80B54700312010 /* TodoList.h */,
+				E12D9C4F1A80B5B300312010 /* TodoList.m */,
 			);
 			path = HW3;
 			sourceTree = "<group>";
@@ -217,7 +227,9 @@
 			files = (
 				E1F069C61A7F49F30003308B /* ViewController.m in Sources */,
 				E1F069C31A7F49F30003308B /* main.m in Sources */,
+				E12D9C4D1A80B18200312010 /* TodoItem.m in Sources */,
 				E1F069C11A7F49F30003308B /* AppDelegate.m in Sources */,
+				E12D9C501A80B5B300312010 /* TodoList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +416,7 @@
 				E1F069DC1A7F49F30003308B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1F069DD1A7F49F30003308B /* Build configuration list for PBXNativeTarget "HW3Tests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +425,7 @@
 				E1F069DF1A7F49F30003308B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

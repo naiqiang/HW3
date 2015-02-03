@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "TodoList.h"
 
 @interface HW3Tests : XCTestCase
+
+-(void)showList:(TodoList*)todoList;
 
 @end
 
@@ -25,16 +28,59 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+-(void)showList:(TodoList*)todoList
+{
+    for(id it in [todoList allItems])
+    {
+        TodoItem* item = (TodoItem*)it;
+        NSLog([item title]);
+    }
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+-(void)testAddItems
+{
+    TodoList* list = [TodoList todoList];
+    [list addItem: [TodoItem todoItemWithTitle:@"item1"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item2"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item3"]];
+
+    XCTAssert([list itemCount]==3);
 }
 
+-(void)testAddDups
+{
+    TodoList* list = [TodoList todoList];
+    [list addItem: [TodoItem todoItemWithTitle:@"item1"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item2"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item3"]];
+
+    BOOL added = [list addItem: [TodoItem todoItemWithTitle:@"item3"]];
+    XCTAssert(added == YES);
+    XCTAssert([list itemCount]==4);
+    
+    list.allowDuplicates = NO;
+    added = [list addItem: [TodoItem todoItemWithTitle:@"item3"]];
+    XCTAssert(added == NO);
+    XCTAssert([list itemCount]==4);
+
+    //[self showList: list];
+}
+
+-(void)testRemoveItems
+{
+    TodoList* list = [TodoList todoList];
+    [list addItem: [TodoItem todoItemWithTitle:@"item1"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item2"]];
+    [list addItem: [TodoItem todoItemWithTitle:@"item3"]];
+
+    BOOL removed = [list removeItem:[TodoItem todoItemWithTitle:@"item4"]];
+    XCTAssert(removed == NO);
+    XCTAssert([list itemCount]==3);
+    
+    removed = [list removeItem:[TodoItem todoItemWithTitle:@"item2"]];
+    XCTAssert(removed == YES);
+    XCTAssert([list itemCount]==2);
+    
+    //[self showList: list];
+}
 @end
