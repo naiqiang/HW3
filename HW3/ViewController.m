@@ -35,14 +35,24 @@
     NSString* text = [self.textFieldEntry stringValue];
     TodoItem* item = [TodoItem todoItemWithTitle:text];
 
-    [self.todoList addItem:item];
-    
-    [self.tabView reloadData];
+    BOOL added = [self.todoList addItem:item];
+    if( added )
+    {
+        [self.tabView reloadData];
+    }
 }
 
 - (IBAction)onClickRemove:(id)sender {
     NSLog(@"click remove");
     
+    NSString* text = [self.textFieldEntry stringValue];
+    TodoItem* item = [TodoItem todoItemWithTitle:text];
+
+    BOOL removed = [self.todoList removeItem:item];
+    if( removed )
+    {
+        [self.tabView reloadData];
+    }
 }
 
 - (IBAction)allowDupCheck:(id)sender {

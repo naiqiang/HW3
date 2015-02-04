@@ -58,7 +58,7 @@
     for(id it in self.todoItemList)
     {
         TodoItem* todoItem = (TodoItem*)it;
-        if ( todoItem.title==item.title )
+        if ( [todoItem.title isEqualToString:item.title] )
         {
             NSUInteger index = [self.todoItemList indexOfObject:todoItem];
             [self.todoItemList removeObjectAtIndex:index] ;
