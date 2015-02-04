@@ -682,7 +682,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4A-Zs-aVE">
                                 <rect key="frame" x="14" y="198" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2LW-Nl-pHc">
+                                <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2LW-Nl-pHc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -692,22 +692,12 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-jF-9Qn">
                                 <rect key="frame" x="105" y="198" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jSJ-nT-Gs9">
+                                <buttonCell key="cell" type="push" title="Remove" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jSJ-nT-Gs9">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="onClickRemove:" target="XfG-lQ-9wD" id="cWq-QL-rxX"/>
-                                </connections>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0WO-ye-fIn">
-                                <rect key="frame" x="401" y="207" width="61" height="18"/>
-                                <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="6gZ-XT-qJI">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onClickCheckDuplication:" target="XfG-lQ-9wD" id="1LE-hy-LN6"/>
                                 </connections>
                             </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYc-0w-mkJ">
@@ -717,7 +707,6 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Xp2-Uq-v3l" viewBased="YES" id="vVA-ek-Xa0">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -736,7 +725,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="IFL-xA-aMX">
+                                                        <tableCellView identifier="Cell" id="IFL-xA-aMX">
                                                             <rect key="frame" x="1" y="1" width="116" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -773,13 +762,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lO-Vy-ldj">
+                                <rect key="frame" x="377" y="203" width="85" height="18"/>
+                                <buttonCell key="cell" type="check" title="Allow Dup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Jcz-gd-UYc">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="allowDupCheck:" target="XfG-lQ-9wD" id="vZi-WG-6Wx"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="allowDupButton" destination="8lO-Vy-ldj" id="sSc-dn-83j"/>
                         <outlet property="buttonAdd" destination="X4A-Zs-aVE" id="Cf6-rx-1wF"/>
                         <outlet property="buttonRemove" destination="Oiy-jF-9Qn" id="ClZ-c6-yCv"/>
-                        <outlet property="checkDuplication" destination="0WO-ye-fIn" id="mF6-Gs-lk5"/>
-                        <outlet property="tableTodoList" destination="vVA-ek-Xa0" id="gZl-Uz-4kx"/>
+                        <outlet property="tabView" destination="vVA-ek-Xa0" id="7No-Uj-kCi"/>
                         <outlet property="textFieldEntry" destination="mgu-tO-Dzx" id="vEo-zW-nlF"/>
                     </connections>
                 </viewController>
