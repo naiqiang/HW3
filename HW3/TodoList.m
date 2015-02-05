@@ -11,13 +11,6 @@
 #import "TodoList.h"
 
 
-@interface TodoList()
-
-- (BOOL)hasTodoItem:(TodoItem*)item;
-
-@end
-
-
 @implementation TodoList: NSObject
 
 - (BOOL)hasTodoItem:(TodoItem*)item
@@ -25,7 +18,7 @@
     for(id it in self.todoItemList)
     {
         TodoItem* todoItem = (TodoItem*)it;
-        if ( todoItem.title==item.title )
+        if ( [todoItem.title isEqualToString:item.title] )
         {
             // return on first match
             return YES;

@@ -21,6 +21,9 @@
     self.tabView.dataSource = self;
     
     self.todoList = [TodoList groceryList];
+    [self.tabView reloadData];
+    [self.textFieldEntry setStringValue:@""];
+    [self updateUI:@""];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -39,6 +42,8 @@
     if( added )
     {
         [self.tabView reloadData];
+        [self.textFieldEntry setStringValue:@""];
+        [self updateUI:@""];
     }
 }
 
@@ -52,6 +57,8 @@
     if( removed )
     {
         [self.tabView reloadData];
+        [self.textFieldEntry setStringValue:@""];
+        [self updateUI:@""];
     }
 }
 
@@ -60,20 +67,52 @@
     
     if (button.state == NSOnState)
     {
-        NSLog(@"ON");
         self.todoList.allowDuplicates = YES;
     }
     else
     {
-        NSLog(@"OFF");
         self.todoList.allowDuplicates = NO;
     }
+    
+    // update buttons
+    NSString* text = [self.textFieldEntry stringValue];
+    [self updateUI:text];
 }
 
 -(void)controlTextDidChange:(NSNotification *)obj
 {
     NSString* text = [self.textFieldEntry stringValue];
     NSLog(@"text did change: %@", text);
+    
+    [self updateUI:text];
+}
+
+-(void)updateUI:(NSString*)text
+{
+    if ( [text isEqualToString:@""] )
+    {
+        [self.buttonAdd setEnabled:NO];
+        [self.buttonRemove setEnabled:NO];
+        return;
+    }
+    
+    if ( [self.todoList hasTodoItem:[TodoItem todoItemWithTitle:text]])
+    {
+        [self.buttonRemove setEnabled:YES];
+        if ( [self.todoList allowDuplicates]==YES)
+        {
+            [self.buttonAdd setEnabled:YES];
+        }
+        else
+        {
+            [self.buttonAdd setEnabled:NO];
+        }
+    }
+    else
+    {
+        [self.buttonAdd setEnabled:YES];
+        [self.buttonRemove setEnabled:NO];
+    }
 }
 
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

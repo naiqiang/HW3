@@ -33,7 +33,7 @@
     for(id it in [todoList allItems])
     {
         TodoItem* item = (TodoItem*)it;
-        NSLog([item title]);
+        NSLog(@"%@", item.title);
     }
 }
 

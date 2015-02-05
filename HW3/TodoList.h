@@ -20,6 +20,7 @@
 
 -(BOOL)addItem:(TodoItem*)item;
 -(BOOL)removeItem:(TodoItem*)item;
+-(BOOL)hasTodoItem:(TodoItem*)item;
 
 //-(void)addItem:(TodoItem*)item;    // insert item if OK
 //-(BOOL)canAddItem:(TodoItem*)item; // check if OK to insert

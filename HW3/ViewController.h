@@ -21,5 +21,7 @@
 
 @property TodoList* todoList;
 
+-(void)updateUI:(NSString*)text;
+
 @end
 
