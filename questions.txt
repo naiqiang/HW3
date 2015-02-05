@@ -1,0 +1,4 @@
+I need to spend some time going back to class video to recall what was involved to establish the delegates between TableView and ViewController. I also need to do some online search to remind myself about syntax for creating a class. Overall it's ok.
+
+I don't quite understand how the table view object is structured. It seems there are so many layers before we can even get to the table cell. Then there's more elements called "view" again. I'd like to have some good reference or articles explaining table view in more detials.
+
